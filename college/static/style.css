@@ -1,0 +1,128 @@
+/* Стили для колледжного сайта */
+
+/* Общий стиль сайта */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial;
+    background: #f4f6f8;
+}
+
+/* Стиль заголовки */
+header {
+    background: #003366;
+    color: white;
+    padding: 15px 30px;
+}
+
+/* Стиль навигационной панели */
+
+nav a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Навигационная панель при наведении */
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Стиль для отображения имени пользователя */
+
+.user {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* Основной контент */
+
+main {
+    padding: 30px;
+}
+
+/* Стиль приветствия */
+
+.hero {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+/* Стиль новостных карточек */
+.news-card {
+    background: white;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.1);
+}
+
+/* Стиль формы новостей */
+
+.news-form input,
+.news-form textarea {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+/* Стиль кнопок */
+
+button {
+    background: #003366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+/* Стиль кнопок при наведении */
+
+button:hover {
+    background: #0055aa;
+}
+
+/* Стиль для мелкого текста в новостных карточках */
+
+.news-card small {
+    color: gray;
+    font-size: 12px;
+}
+
+/* Стили для ссылок */
+
+a {
+    color: #003366;
+}
+
+/* Стили для ссылок при наведении */
+
+a:hover {
+    color: #0055aa;
+}
+
+/* Стиль таблиц */
+
+table {
+    background: white;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Стиль заголовков таблицы */
+
+th {
+    background: #003366;
+    color: white;
+}
+
+/* Стиль ячеек таблицы */
+
+td, th {
+    padding: 10px;
+}

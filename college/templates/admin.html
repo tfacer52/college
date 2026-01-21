@@ -1,0 +1,62 @@
+<!-- ================== admin.html ================== -->
+
+<!-- Использую готовый шаблон, а дальше добавлю свои изменения -->
+
+{% extends "base.html" %}
+
+<!-- Заголовок страницы -->
+{% block title %}Админ-панель{% endblock %} <!-- Конец заголовка -->
+
+{% block content %}
+<h2>⚙ Админ-панель</h2>
+<hr>
+
+<!-- ===== Пользователи, Данные пользователей ===== -->
+<h3>👤 Пользователи</h3>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>ID</th>
+        <th>Логин</th>
+        <th>Роль</th>
+        <th>Действия</th>
+    </tr>
+
+    <!-- Пользователи, Данные пользователей -->
+    {% for u in users %}
+    <tr>
+        <td>{{ u.id }}</td>
+        <td>{{ u.username }}</td>
+        <td>{{ u.role }}</td>
+        <td>
+            <!-- Смена роли пользователя -->
+            {% if u.role == "student" %}
+                <a href="/admin/set_role/{{ u.id }}/admin">Сделать админом</a>
+            {% else %}
+                <a href="/admin/set_role/{{ u.id }}/student">Сделать студентом</a>
+            {% endif %}
+            |
+            <!-- Удаление пользователя -->
+            <a href="/admin/delete_user/{{ u.id }}">🗑</a>
+        </td>
+    </tr>
+    {% endfor %} <!-- Конец цикла -->
+</table>
+
+<hr>
+
+<!-- ===== Управление новостями ===== -->
+<h3>📰 Новости</h3>
+
+<!-- n = news -->
+{% for n in news %}
+<div class="news-card">
+    <h4>{{ n.title }}</h4>
+    <small>{{ n.created_at }}</small>
+    <p>{{ n.content }}</p>
+
+    <!-- Удаление новости -->
+    <a href="/admin/delete_news/{{ n.id }}">🗑 Удалить</a>
+</div>
+{% endfor %} <!-- Конец цикла -->
+{% endblock %} <!-- Конец основного контента -->

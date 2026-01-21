@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    
+    <meta charset="UTF-8">
+
+    <!-- Заголовок страницы -->
+    <title>{% block title %}IT College{% endblock %}</title>
+
+    <!-- Подключение CSS из папки static -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</head>
+
+<body>
+
+<header>
+    <!-- Название сайта -->
+    <h1>IT College</h1>
+
+    <!-- Навигационное меню -->
+    <nav>
+        <a href="/">Главная</a>
+        <a href="/about">О колледже</a>
+        <a href="/specialties">Специальности</a>
+        <a href="/news">Новости</a>
+        <a href="/contacts">Контакты</a>
+
+        <!-- Ссылка на админку видна только администратору -->
+        {% if session.get('role') == 'admin' %}
+            <a href="/admin">⚙ Админ</a>
+        {% endif %}
+
+        <!-- Пользователь,Выход -->
+        {% if session.get('user') %}
+            <span class="user">👤 {{ session.user }}</span>
+            <a href="/logout">Выйти</a>
+        {% else %}
+            <!-- Логин -->
+            <a href="/login">Вход</a>
+        {% endif %}
+    </nav>
+</header>
+
+<main>
+    <!-- Тут будет контент от конкретной страницы,а базовый шаблон ничего не показывает -->
+
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    <p>© 2026 IT College</p>
+</footer>
+
+<!-- Подключение к JavaScript -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

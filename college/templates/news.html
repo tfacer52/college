@@ -1,0 +1,29 @@
+<!-- ================== news.html ================== -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Новости колледжа</h2>
+
+<!-- Форма добавления новости -->
+{% if session.get('user') %}
+<form method="POST" class="news-form">
+    <input name="title" placeholder="Заголовок" required>
+    <textarea name="content" placeholder="Текст"></textarea>
+    <button>Добавить</button>
+</form>
+{% endif %}
+
+<!-- Вывод всех новостей -->
+{% for n in news %}
+<div class="news-card">
+    <h3>{{ n.title }}</h3>
+    <small>{{ n.created_at }}</small>
+    <p>{{ n.content }}</p>
+
+    <!-- Кнопка удаления доступна только админу -->
+    {% if session.get('role') == 'admin' %}
+        <a href="/news/delete/{{ n.id }}">🗑 Удалить</a>
+    {% endif %}
+</div>
+{% endfor %}
+{% endblock %}

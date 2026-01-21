@@ -1,0 +1,24 @@
+<!-- Использую готовый шаблон, а дальше добавлю свои изменения -->
+
+{% extends "base.html" %}
+
+<!-- Основной контент страницы -->
+{% block content %}
+
+<!-- Регистрация -->
+<h2>Регистрация</h2>
+
+<!-- Форма регистрации пользователя -->
+<form method="POST">
+
+    <!-- Поле ввода логина -->
+    <input name="username" placeholder="Логин" required>
+
+    <!-- Поле ввода пароля -->
+    <input name="password" type="password" placeholder="Пароль" required>
+
+    <!-- Отправка формы -->
+    <button>Зарегистрироваться</button>
+</form>
+
+{% endblock %}
